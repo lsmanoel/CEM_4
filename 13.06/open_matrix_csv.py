@@ -32,20 +32,27 @@ mag_plane_top_24_MHz = -mag_plane_top_24_MHz
 # ==============================================================================
 # &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 import matplotlib.pyplot as plt
+import numpy as np
 
 fig = plt.figure(figsize=(11,8))
 
 # ==============================================================================  
 ax = fig.add_subplot(1, 1, 1)
 
-img_elc_plane_top_24_MHz = ax.imshow(elc_plane_top_24_MHz, 
-                                     interpolation ='gaussian', 
-                                     cmap ='inferno',
-                                     vmax = 0,
-                                     vmin = -80)
+img = ax.imshow(elc_plane_bottom_24_MHz, 
+                interpolation ='gaussian', 
+                cmap ='inferno',
+                vmax = 0,
+                vmin = -80)
 
-fig.colorbar(img_elc_plane_top_24_MHz, ax=ax)
+fig.colorbar(img, ax=ax)
 
-ax.grid(False)
+ax.set_xlim([0, 12])
+ax.set_ylim([0, 12])
+
+ax.set_xticks(np.arange(0,13,1)) 
+ax.set_yticks(np.arange(0,13,1)) 
+
+ax.grid(True)
 
 plt.show()
