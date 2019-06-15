@@ -1,0 +1,36 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+url_elc_plane_bottom_24_MHz = 'https://raw.githubusercontent.com/lsmanoel/CEM_4/master/13.06/placaL_medidas%20-%20%20plane_bottom_24_MHz.csv'
+url_elc_plane_bottom_500_KHz = 'https://raw.githubusercontent.com/lsmanoel/CEM_4/master/13.06/placaL_medidas%20-%20plane_bottom_500_KHz.csv'
+url_elc_plane_top_24_MHz = 'https://raw.githubusercontent.com/lsmanoel/CEM_4/master/13.06/placaL_medidas%20-%20plane_top_24_MHz.csv'
+url_elc_plane_top_500_KHz = 'https://raw.githubusercontent.com/lsmanoel/CEM_4/master/13.06/placaL_medidas%20-%20plane_top_500_KHz.csv'
+url_mag_plane_bottom_24_MHz = 'https://raw.githubusercontent.com/lsmanoel/CEM_4/master/13.06/placaL_medidas%20-%20mag_plane_bottom_24_MHz.csv'
+url_mag_plane_top_24_MHz = 'https://raw.githubusercontent.com/lsmanoel/CEM_4/master/13.06/placaL_medidas%20-%20mag_plane_top_24_MHz.csv'
+
+pd_elc_plane_bottom_24_MHz = pd.read_csv(url_elc_plane_bottom_24_MHz)
+pd_elc_plane_bottom_500_KHz = pd.read_csv(url_elc_plane_bottom_500_KHz)
+pd_elc_plane_top_24_MHz = pd.read_csv(url_elc_plane_top_24_MHz)
+pd_elc_plane_top_500_KHz = pd.read_csv(url_elc_plane_top_500_KHz)
+pd_mag_plane_bottom_24_MHz = pd.read_csv(url_mag_plane_bottom_24_MHz)
+pd_mag_plane_top_24_MHz = pd.read_csv(url_mag_plane_top_24_MHz)
+
+elc_plane_bottom_24_MHz = pd_elc_plane_bottom_24_MHz.values
+elc_plane_bottom_500_KHz = pd_elc_plane_bottom_500_KHz.values
+elc_plane_top_24_MHz = pd_elc_plane_top_24_MHz.values
+elc_plane_top_500_KHz = pd_elc_plane_top_500_KHz.values
+mag_plane_bottom_24_MHz = pd_mag_plane_bottom_24_MHz.values
+mag_plane_top_24_MHz = pd_mag_plane_top_24_MHz.values
+
+elc_plane_bottom_24_MHz = -elc_plane_bottom_24_MHz
+elc_plane_bottom_500_KHz = -elc_plane_bottom_500_KHz
+elc_plane_top_24_MHz = -elc_plane_top_24_MHz
+elc_plane_top_500_KHz = -elc_plane_top_500_KHz
+mag_plane_bottom_24_MHz = -mag_plane_bottom_24_MHz
+mag_plane_top_24_MHz = -mag_plane_top_24_MHz
+
+plt.figure(figsize=(9,9))
+plt.imshow(mag_plane_bottom_24_MHz, cmap='inferno')
+plt.grid(False)
+
+plt.show()
