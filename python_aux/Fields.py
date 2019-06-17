@@ -9,7 +9,8 @@ class Field:
 	# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	# Aux Functions:
 	@staticmethod
-	def save_
+	def save_local():
+		pass
 
     # ===========================================================
 	# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -56,7 +57,7 @@ class Field:
 	# ===========================================================
 	# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	@staticmethod
-	def field_dir_exampe():
+	def field_dir_example():
 		data_dict = {
 		    'URL':  'https://raw.githubusercontent.com/lsmanoel/CEM_4/master/python_aux/data/data.csv',
 		    'LOCAL': './data/data.csv'
@@ -70,6 +71,31 @@ class Field:
 		photo_dict = {
 		    'URL':  'https://raw.githubusercontent.com/lsmanoel/CEM_4/master/python_aux/photo/info.csv',
 		    'LOCAL': './photo/photo.csv'
+		}
+		
+		field_dir = {
+			'data': data_dict,
+			'info': info_dict, 
+		    'photo': photo_dict
+		}
+
+		return field_dir
+
+	@staticmethod
+	def field_example():
+		data_dict = {
+		    'URL':  'https://raw.githubusercontent.com/lsmanoel/CEM_4/master/python_aux/data/placaL_medidas%20-%20%20plane_bottom_24_MHz.csv',
+		    'LOCAL': None
+		}
+
+		info_dict = {
+		    'URL':   None,
+		    'LOCAL':  None
+		}
+				
+		photo_dict = {
+		    'URL':   None,
+		    'LOCAL':  None
 		}
 		
 		field = {
@@ -103,53 +129,8 @@ class Field:
 			print("\tError: invalid shape: ", Field.url2np(field['data']['URL']).shape)
 			print('\t\tdata shape for this experiment must be ', shape)
 
-	@staticmethod
-	def test_field_info_format(field):
-		print('Test Field Info Format:')
-		print(Field.url2np(field['info']['eut']))
-		print('\n')
-
 
 # ===============================================================
 # **************************************************************
 # **************************************************************
-class PlotField(Plot):
-    def __init__(self):
-		super().__init__()
-
-	@staticmethod
-	def plot2d(field):
-		import matplotlib.pyplot as plt
-		import numpy as np
-
-		# ==============================================================================  
-		fig = plt.figure(figsize=(11,8))
-
-		# ==============================================================================  
-		ax = fig.add_subplot(1, 1, 1)
-		ax.set_title('Top - 500  KHz')
-
-		img = ax.imshow(elc_plane_top_500_KHz, 
-		                interpolation ='gaussian', 
-		                cmap ='inferno',
-		                vmax = 0,
-		                vmin = -80)
-
-		fig.colorbar(img, ax=ax)
-
-		ax.set_xlim([0, 12])
-		ax.set_ylim([0, 12])
-
-		ax.set_xticks(np.arange(0,13,1)) 
-		ax.set_yticks(np.arange(0,13,1)) 
-
-		ax.grid(True)
-
-		#===============================================================================
-		plt.show()
-
-
-# ===============================================================
-# **************************************************************
-# **************************************************************
-Field.testbeach(Field.test_field_data_shape(Field.field_exampe()))
+Field.testbeach(Field.test_field_data_shape(Field.field_example()))
