@@ -56,20 +56,20 @@ class Field:
 	# ===========================================================
 	# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	@staticmethod
-	def field_exampe():
+	def field_dir_exampe():
 		data_dict = {
-		    'URL':  'https://raw.githubusercontent.com/lsmanoel/CEM_4/master/13.06/placaL_medidas%20-%20plane_top_24_MHz.csv',
-		    'LOCAL': './data'
+		    'URL':  'https://raw.githubusercontent.com/lsmanoel/CEM_4/master/python_aux/data/data.csv',
+		    'LOCAL': './data/data.csv'
 		}
 
 		info_dict = {
-		    'URL':  None,
-		    'LOCAL': './info'
+		    'URL':  'https://raw.githubusercontent.com/lsmanoel/CEM_4/master/python_aux/info/info.csv',
+		    'LOCAL': './info/info.csv'
 		}
 				
 		photo_dict = {
-		    'URL':  None,
-		    'LOCAL': './photo'
+		    'URL':  'https://raw.githubusercontent.com/lsmanoel/CEM_4/master/python_aux/photo/info.csv',
+		    'LOCAL': './photo/photo.csv'
 		}
 		
 		field = {
